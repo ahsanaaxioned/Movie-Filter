@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- If multi-language site, reconsider usage of html lang declaration here. -->
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -10,10 +10,10 @@
   <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="favicon.ico" />
   <!--font-awesome link for icons-->
-  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css" >
+  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
 
 <body>
@@ -24,28 +24,29 @@
       <section class="movie-filter">
         <div class="wrapper">
           <div class="movie-containere">
-          <h1 class="heading">Movie Filter</h1>
-          <form action="#FIXME" name="form" class="form" method="post">
-            <div class="form-container">
-              <div class="input-container">
-                <input type="text" name="search" class="movie-input" placeholder="Search Movie">
+            <h1 class="heading">Movie Filter</h1>
+            <form action="#FIXME" name="form" class="form" method="post">
+              <div class="form-container">
+                <div class="input-container">
+                  <input type="text" name="search" class="movie-input" placeholder="Search Movie">
+                  <span class="error">error</span>
+                </div>
+                <div class="input-control">
+                  <input type="submit" name="submit" class="search-btn" value="Search">
+                </div>
               </div>
-              <div class="input-container">
-                <input type="submit" name="submit" class="search-btn" value="Search">
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
+          <div class="movie-data">
+            <h2 class="sub-heading">Your Movies</h2>
+            <ul class="data-list">
+              <li class="data-item">Sr No.</li>
+              <li class="data-item">Release Date</li>
+              <li class="data-item">Movie Name</li>
+              <li class="data-item">Actor Name</li>
+            </ul>
+          </div>
         </div>
-        <div class="movie-data">
-          <ul class="data-list">
-            <li class="data-item">Sr No.</li>
-            <li class="data-item">Release Date</li>
-            <li class="data-item">Movie Name</li>
-            <li class="data-item">Actor Name</li>
-          </ul>
-          <ul class="data-list">movie data</ul>
-        </div>
-      </div>
       </section>
     </main>
     <!--main section end-->
@@ -53,4 +54,5 @@
   <!--container end-->
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
