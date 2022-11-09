@@ -3,7 +3,9 @@ const form = document.querySelector(".form"),
   input = document.querySelector(".movie-input"),
   movieBox = document.querySelector(".movie-data"),
   error = document.querySelector(".error");
+let movieVal;
 // global variable declaration end here
+
 // form event and validation strat here
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -13,10 +15,23 @@ form.addEventListener("submit", function (e) {
     error.classList.add("fail");
     input.classList.add("fail");
   } else {
-    error.classList.remove("fail");
-    input.classList.remove("fail");
+    hide();
+    MovieFilter();
   }
 });
+
+input.addEventListener("keyup", () => {
+ if(input.value !=""){
+  hide();
+ }
+  MovieFilter();
+})
+
+// function for removing error
+function hide(){
+  error.classList.remove("fail");
+  input.classList.remove("fail");
+}
 // form event and validation end here
 
 // movie object start here
@@ -72,24 +87,50 @@ const movie = [
     releaseDate: "25/07/2014",
     movieName: "PK",
     actorName: "Amir Khan"
-  },
+  }
 
 ];
+// initial call to show movie data
+showData(movie);
+// function for creating movie data start here
+function showData(movie) {
+  const movieList = document.createElement("ul");
+  movieList.className = "data-list movie-list";
+  movie.forEach(function (element, index) {
+    const movieItem = document.createElement("li");
+    movieItem.className = "movie-item";
+    movieItem.innerHTML = `<ul class="movie-data">
+        <li class="data-item">Movie Name: ${element.movieName}</li>
+        <li class="data-item">Release Date: ${element.releaseDate}</li>
+        <li class="data-item">Actor Name: ${element.actorName}</li>
+        </ul>`;
+    movieList.appendChild(movieItem);
+    movieBox.appendChild(movieList);
+  });
+};
+// function for creating movie data end here
 
-const movieList = document.createElement("ul");
-movieList.className = "data-list movie-list";
-movieBox.appendChild(movieList);
-movie.forEach(function (element, index) {
-  const movieItem = document.createElement("li");
-  movieItem.className = "movie-item";
-  movieItem.innerHTML = `<ul class="movie-data">
-  <li class="data-item">Movie Name: ${element.movieName}</li>
-  <li class="data-item">Release Date: ${element.releaseDate}</li>
-  <li class="data-item">Actor Name: ${element.actorName}</li>
-</ul>`;
-  movieList.appendChild(movieItem);
-});
+// function for filtering movie data start here
+function MovieFilter() {
+  const result = movie.filter(function (movie) {
+    return (movie.movieName.toLowerCase().includes(input.value.toLowerCase()) ||
+      movie.releaseDate.toLowerCase().includes(input.value.toLowerCase()) ||
+      movie.actorName.toLowerCase().includes(input.value.toLowerCase()));
+  });
+  movieBox.innerHTML = "";
+  if (result != "") {
+    showData(result);
+  } else {
+    movieNotFound();
+  }
+}
+// function for filtering movie data start here
 
-
-
-
+// function for showing movies not found start here
+function movieNotFound() {
+  const notFound = document.createElement("span");
+  notFound.className = "not-found";
+  notFound.innerText = "Movies Not Found...!";
+  movieBox.appendChild(notFound)
+};
+// function for showing movies not found end here
