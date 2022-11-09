@@ -177,22 +177,30 @@ li {
 
 .movie-item {
   border: 1px solid #0db8e1;
-  background: #0db8e1;
-  margin: 20px 0%;
-  flex-basis: 30%;
-  text-align: center;
   border-radius: 8px;
+  margin: 15px 5%;
+  flex-basis: 40%;
+  background: #0db8e1;
+  text-align: center;
 }
 
-.data-item{
-  font-size: 25px;
-  color: #fff;
+.data-item {
   padding: 10px 0;
-  justify-content: center;
+  color: #fff;
+  font-size: 25px;
 }
 
-.movie-data {
-  padding: 40px 5%;
+.movie-data { padding: 15px 3%; }
+
+.not-found {
+  padding: 70px 0;
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #404C56;
+  font-size: 25px;
+  font-weight: 600;
 }
 /*=================================
   main styling ends here
@@ -201,9 +209,7 @@ li {
 /*media query starts*/
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
-  .wrapper {
-    width: 95%;
-  }
+  .wrapper { width: 95%; }
 
 }
 
@@ -220,4 +226,5 @@ li {
   .input-control { flex-basis: 33%;  }
   .search-btn { font-size: 23px; }
   .movie-input { font-size: 18px };
+  
 }
